@@ -1,9 +1,9 @@
 package characters;
 
 public abstract class MiddleEarthCharacter {
-	private String name;
-	private double health;
-	private double power;
+	protected String name;
+	protected double health;
+	protected double power;
 	
 	public MiddleEarthCharacter() {
 		this.name = "Unknown";

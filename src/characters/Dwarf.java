@@ -1,15 +1,12 @@
 package characters;
 
 public class Dwarf extends MiddleEarthCharacter{
-	private String name;
-	private double health;
-	private double power;
-	
 	
 	// Set values
-	private String race = "Dwarf";
-	private String strongAgainst = "Elf";
-	private String weakAgainst = "Wizard";
+	private static final String RACE = "Dwarf";
+	private static final String STRONG_AGAINST = "Elf";
+	private static final String WEAK_AGAINST = "Wizard";
+	
 	
 	public Dwarf() {
 		this.name = "Unknown";
@@ -26,21 +23,25 @@ public class Dwarf extends MiddleEarthCharacter{
 	
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
+		double oldHealth = target.getHealth();
 		double health = target.getHealth();
-		double damage = this.power;
-		if((target.getRace() != this.race) || (target.getRace() != this.weakAgainst)){
-			if(target.getRace() == this.strongAgainst) {
-				damage *= 1.5;
+		double scalar = 1.0;
+		if((target.getRace() != RACE) && (target.getRace() != WEAK_AGAINST)){
+			if(target.getRace() == STRONG_AGAINST) {
+				scalar += 0.5;
 			}
-			health -= damage;
+			health -= this.power * scalar;
 			target.setHealth(health);
+			System.out.println(this.getName() + " (" + this.getHealth() + ")" + " attacked " + target.getName() 
+			+ " (" + target.getHealth() + ") with " + this.power*scalar + " damage! (" + this.power + "x" + scalar + ") (HP: " + oldHealth + " -> " + health + ")"); 
 			return true;
 		}
+		System.out.println(this.getName() + " (" + this.getHealth() + ")" + " tried to attack " + target.getName() + " (" + this.getHealth() + ") but the attack failed!");
 		return false;
 	}
 	
 	@Override
 	public String getRace() {
-		return this.race;
+		return RACE;
 	}
 }
