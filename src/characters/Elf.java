@@ -2,10 +2,6 @@ package characters;
 
 public class Elf extends MiddleEarthCharacter{
 
-	// Set values
-	private static final String RACE = "Elf";
-	private static final String STRONG_AGAINST = "Orc";
-	private static final String WEAK_AGAINST = "Dwarf";
 	
 	
 	/**
@@ -53,8 +49,8 @@ public class Elf extends MiddleEarthCharacter{
 		double scalar = 1.0;
 		
 		
-		if((target.getRace() != RACE) && (target.getRace() != WEAK_AGAINST)){
-			if(target.getRace() == STRONG_AGAINST) {
+		if((target.getRace() != this.getRace()) && (target.getRace() != "Dwarf")){
+			if(target.getRace() == "Orc") {
 				scalar += 0.5;
 			}
 			health -= this.power * scalar;
@@ -75,6 +71,6 @@ public class Elf extends MiddleEarthCharacter{
 	 */
 	@Override
 	public String getRace() {
-		return RACE;
+		return "Elf";
 	}
 }
