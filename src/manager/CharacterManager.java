@@ -89,4 +89,15 @@ public class CharacterManager {
 		return false;
 	}
 	
+	/**
+	 * display all characters method that prints info of all
+	 * characters in the loop using a for loop
+	 */
+	void displayAllCharacters() {
+		for(int i=0; i<size; i++) {
+			characters[i].displayInfo();
+		}
+	}
+	
+	
 }
