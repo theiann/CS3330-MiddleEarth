@@ -44,5 +44,29 @@ public class CharacterManager {
 		return null;
 	}
 	
+	/**
+	 * this method simply updates the information of the character that is passed
+	 * it moves through the array and compares the passed character to all 
+	 * characters in the array until found and updates their value by calling 
+	 * the respective setter functions 
+	 * @param character
+	 * @param name
+	 * @param health
+	 * @param power
+	 * @return returns False if character not found, and true if info was updated. 
+	 */
+	boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) {
+		for (int i=0;i<size;i++) {
+			if(character.equals(characters[i])) {
+				characters[i].setName(name);
+				characters[i].setHealth(health);
+				characters[i].setPower(power);
+				return true;
+			}
+		}
+		return false; 
+	}
+	
+	
 	
 }
