@@ -7,7 +7,7 @@ public class CharacterManager {
 	private int size=0;
 
 	/**
-	 * this method adds a character to the character array, if the size of the array get filled,
+	 * this method adds a character to the character array, if the size of the array gets filled,
 	 * it creates a new array that is 2 times longer and copies everything onto that array
 	 * After adding the character it increments the size
 	 * @param c
@@ -29,6 +29,20 @@ public class CharacterManager {
 		return true; 
 	}
 	
+	/**
+	 * This method simply searches the array until it finds an index of character
+	 * with the same name, if the name is the same, it returns the character index found
+	 * @param name
+	 * @return returns the character index if same name is found, otherwise null
+	 */
+	MiddleEarthCharacter getCharacter(String name) {
+		for(int i =0;i<size;i++) {
+			if(characters[i].getName().equals(name)) {
+				return characters[i];
+			}
+		}
+		return null;
+	}
 	
 	
 }
