@@ -13,7 +13,7 @@ public class CharacterManager {
 	 * @param c
 	 * @return returns false if character addition fails and true if it works
 	 */
-	boolean addCharacter (MiddleEarthCharacter c) {
+	public boolean addCharacter (MiddleEarthCharacter c) {
 		if(c== null) {
 			return false;
 		}
@@ -35,7 +35,7 @@ public class CharacterManager {
 	 * @param name
 	 * @return returns the character index if same name is found, otherwise null
 	 */
-	MiddleEarthCharacter getCharacter(String name) {
+	public MiddleEarthCharacter getCharacter(String name) {
 		for(int i =0;i<size;i++) {
 			if(characters[i].getName().equals(name)) {
 				return characters[i];
@@ -55,7 +55,7 @@ public class CharacterManager {
 	 * @param power
 	 * @return returns False if character not found, and true if info was updated. 
 	 */
-	boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) {
+	public boolean updateCharacter (MiddleEarthCharacter character, String name, double health, double power) {
 		for (int i=0;i<size;i++) {
 			if(character.equals(characters[i])) {
 				characters[i].setName(name);
@@ -75,10 +75,10 @@ public class CharacterManager {
 	 * @param character
 	 * @return returns true if deletion success otherwise false 
 	 */
-	boolean deleteCharacter(MiddleEarthCharacter character) {
+	public boolean deleteCharacter(MiddleEarthCharacter character) {
 		for (int i=0;i<size;i++) {
 			if(character.equals(characters[i])) {
-				for(int j=i;i<size-1;i++){
+				for(int j=i;i<size-1;j++){
 				characters[j]= characters[j+1];				
 			}
 				characters[size-1]=null;
@@ -93,7 +93,7 @@ public class CharacterManager {
 	 * display all characters method that prints info of all
 	 * characters in the loop using a for loop
 	 */
-	void displayAllCharacters() {
+	public void displayAllCharacters() {
 		for(int i=0; i<size; i++) {
 			characters[i].displayInfo();
 		}
