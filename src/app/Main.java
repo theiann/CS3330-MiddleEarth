@@ -55,7 +55,7 @@ public class Main {
     private static void commandsMenu() {
         System.out.println("\nChoose:");
         System.out.println("1. Add character to Middle Earth");
-        System.out.println("2. Kill a character");
+        System.out.println("2. Delete a character");
         System.out.println("3. Update character stats");
         System.out.println("4. View all characters");
         System.out.println("5. ATTACK!!");
@@ -183,7 +183,34 @@ public class Main {
     }
 
     private static void executeAllAttacks() {
-      
+    	System.out.println("Enter the name of the character you want to attack with:");
+    	String attackerName = scanner.nextLine();
+    	
+    	MiddleEarthCharacter LuckyAttacker = characterManager.getCharacter(attackerName);
+    	
+    	if(LuckyAttacker == null) {
+    		System.out.println("Character not found");
+    		return;
+    	}
+    	else {
+    		System.out.println("Enter the name of the character you want to set destruction upon:");
+    		String defenderName = scanner.nextLine();
+    		
+    		MiddleEarthCharacter unluckyDefender = characterManager.getCharacter(defenderName);
+    		if(unluckyDefender == null) {
+        		System.out.println("Character not found");
+        		return;
+        	}
+    		else {
+    			 LuckyAttacker.attack(unluckyDefender); 
+    			if(unluckyDefender.getHealth()<=0) {
+    				System.out.println("You killed him, how could you??:");
+    				characterManager.deleteCharacter(unluckyDefender);
+    			}
+    			
+    		}
+    		
+    	}
     }
 
 }
