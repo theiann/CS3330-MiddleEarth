@@ -151,7 +151,13 @@ public class Main {
      	   System.out.println("Your character was successfully deleted");
         }
     }
-
+/**
+ * This method scans for a character name, using the name, it finds the character in the 
+ * array to be updated, after, it asks for user input regarding a new name , health and power
+ * , then it calls the update character method in the character manager class, while passing 
+ * the new health, power and name values. Using boolean, it also lets the user know 
+ * weather the character was updated or not
+ */
     private static void updateCharacter() {
         System.out.print("Enter the name of the character you want to update: ");
         String name = scanner.nextLine();
@@ -182,6 +188,14 @@ public class Main {
         
     }
 
+    /**
+     * This method allows all the characters in the array to attack each other. This is 
+     * done by first asking the user for the attacker name and then the defender name. 
+     * Both characters are then found using a call to the get character method
+     * after, using polymorphism, the attack method is called using earlier attacker and 
+     * defender characters found. At the end, if the defender reaches 0 or lower health, the 
+     * delete character method is called on them, and they are removed from the array. 
+     */
     private static void executeAllAttacks() {
     	System.out.println("Enter the name of the character you want to attack with:");
     	String attackerName = scanner.nextLine();
