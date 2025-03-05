@@ -67,6 +67,26 @@ public class CharacterManager {
 		return false; 
 	}
 	
-	
+	/**
+	 * this method searches the whole array until it finds the character to delete,
+	 * then once found, using a nested for loop, it shifts all elements on the 
+	 * right of the index to be deleted on to the left and then  sets the last
+	 * index to be null. On success, it decrements size 
+	 * @param character
+	 * @return returns true if deletion success otherwise false 
+	 */
+	boolean deleteCharacter(MiddleEarthCharacter character) {
+		for (int i=0;i<size;i++) {
+			if(character.equals(characters[i])) {
+				for(int j=i;i<size-1;i++){
+				characters[j]= characters[j+1];				
+			}
+				characters[size-1]=null;
+				size--;
+				return true; 
+		}
+	}
+		return false;
+	}
 	
 }
