@@ -15,6 +15,11 @@ public class Main {
     private static CharacterManager characterManager = new CharacterManager();
 
     public static void main(String[] args) {
+    	/**
+    	 * Until prompted to exit the menu, the switch case will be used to perform
+    	 * different actions to the characters array. It will first print the commands 
+    	 * menu to let the user know what Middle earth functions they can do 
+    	 */
         boolean exit = false;
         while (!exit) {
             commandsMenu();
@@ -57,7 +62,14 @@ public class Main {
         System.out.println("6. EXIT");
         System.out.println("\nChoose:");
     }
-
+/**
+ * The add character method first prints the options that users have
+ * regarding selection of the character's race, then it uses input to 
+ * also get the health and power of the character being added.
+ * All of this is then sent to a method in one of the race classes
+ * using a switch case
+ */
+    
     private static void addCharacter() {
         System.out.println("Select character race:");
         System.out.println("1. Dwarf");
@@ -103,7 +115,6 @@ public class Main {
 
         characterManager.addCharacter(characterNew);
     }
- 
     private static void viewAllCharacters() {
         characterManager.displayAllCharacters();
     }
@@ -146,4 +157,5 @@ public class Main {
     private static void executeAllAttacks() {
       
     }
+
 }
