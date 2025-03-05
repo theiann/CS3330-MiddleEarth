@@ -113,7 +113,13 @@ public class Main {
                 return;
         }
 
-        characterManager.addCharacter(characterNew);
+       boolean addCharacterStatus = characterManager.addCharacter(characterNew);
+       if(addCharacterStatus == false) {
+    	   System.out.println("Your character could not be Added");
+       }
+       else {
+    	   System.out.println("Your character was successfully Added");
+       }
     }
     
     /**
@@ -131,19 +137,23 @@ public class Main {
      * method in the character manager class. 
      */
     private static void deleteCharacter() {
+    	boolean deleteCharacterStatus; 
         System.out.println("Enter the name of the character you want to delete");
         String characterToDelete = scanner.nextLine();
         MiddleEarthCharacter foundCharacter = characterManager.getCharacter(characterToDelete);
         
-        if (foundCharacter != null) {
-            characterManager.deleteCharacter(foundCharacter);
-        } else {
-            System.out.println("Character not found.");
+        deleteCharacterStatus = characterManager.deleteCharacter(foundCharacter);
+        
+        if(deleteCharacterStatus == false) {
+     	   System.out.println("Your character could not be deleted");
+        }
+        else {
+     	   System.out.println("Your character was successfully deleted");
         }
     }
 
     private static void updateCharacter() {
-        System.out.print("Enter character name to update: ");
+        System.out.print("Enter the name of the character you want to update: ");
         String name = scanner.nextLine();
 
         MiddleEarthCharacter character = characterManager.getCharacter(name);
@@ -162,7 +172,14 @@ public class Main {
         System.out.print("Enter new power: ");
         double newPower = scanner.nextDouble();
 
-        characterManager.updateCharacter(character, newName, newHealth, newPower);
+        boolean updateCharacterStatus= characterManager.updateCharacter(character, newName, newHealth, newPower);
+        if(updateCharacterStatus == false) {
+      	   System.out.println("Your character could not be Updated");
+         }
+         else {
+      	   System.out.println("Your character was successfully updated");
+         }
+        
     }
 
     private static void executeAllAttacks() {
