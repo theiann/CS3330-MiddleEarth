@@ -115,10 +115,21 @@ public class Main {
 
         characterManager.addCharacter(characterNew);
     }
+    
+    /**
+     * This method simply calls the display all characters method in character manager. 
+     */
     private static void viewAllCharacters() {
         characterManager.displayAllCharacters();
     }
 
+    /**
+     * In this delete character method, first it asks the user some input regarding
+     * what character they want to delete, which would be the name, the name is then 
+     * passed onto the get character method in the character manager class, when the 
+     * character is returned, after the character returned is passed onto the delete 
+     * method in the character manager class. 
+     */
     private static void deleteCharacter() {
         System.out.println("Enter the name of the character you want to delete");
         String characterToDelete = scanner.nextLine();
